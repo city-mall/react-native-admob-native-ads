@@ -5,10 +5,10 @@ import {
   requireNativeComponent,
   StyleSheet,
   Text,
-  TouchableOpacity,
   View,
 } from "react-native";
 import { NativeAdContext } from "./context";
+import { TouchableOpacity } from "react-native-gesture-handler";
 const CallToActionView = ({
   style,
   allowFontScaling = true,
@@ -59,7 +59,7 @@ const CallToActionView = ({
           style={[
             styles.textwrapper,
             {
-              elevation: style.elevation ? style.elevation + 10 : 10,
+              elevation: 0,
             },
           ]}
           pointerEvents="none"
@@ -82,9 +82,6 @@ const styles = StyleSheet.create({
   },
 });
 
-const ButtonView =
-  Platform.OS === "android"
-    ? requireNativeComponent("RNAdmobButton")
-    : TouchableOpacity;
+const ButtonView = TouchableOpacity;
 
 export default CallToActionView;
